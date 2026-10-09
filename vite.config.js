@@ -20,17 +20,13 @@ export default defineConfig(({ mode }) => {
       ),
     },
     build: {
-      // Source maps untuk production (menghilangkan warning "Missing source maps")
       sourcemap: true,
-      // Target modern browsers (mengurangi legacy JS / polyfill)
       target: "es2022",
-      // Minify dengan esbuild (default, cepat)
       minify: "esbuild",
-      // Chunk size warning
+      cssCodeSplit: true,
       chunkSizeWarningLimit: 600,
       rollupOptions: {
         output: {
-          // Manual chunking agar JS tidak semuanya di satu file besar
           manualChunks: {
             "vue-vendor": ["vue", "vue-router", "pinia"],
             "ui-vendor": ["lucide-vue-next", "sweetalert2"],

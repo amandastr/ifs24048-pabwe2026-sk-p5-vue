@@ -213,7 +213,6 @@ import { User, Camera, Check, Loader2, ShieldCheck } from "lucide-vue-next";
 const usersStore = useUsersStore();
 const profile = computed(() => usersStore.profile);
 
-// Form states
 const name = ref("");
 const email = ref("");
 const oldPassword = ref("");
