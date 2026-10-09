@@ -19,7 +19,7 @@
           type="button"
           data-testid="close-bid-modal-btn"
           @click="onClose"
-          class="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
+          class="p-1.5 rounded-lg text-slate-600 hover:text-slate-600 hover:bg-slate-100 transition-colors"
         >
           <X :size="18" />
         </button>
@@ -53,7 +53,7 @@
             class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 transition-all text-sm shadow-xs"
             required
           />
-          <p class="text-xs text-slate-400 mt-1.5" data-testid="bid-hint">
+          <p class="text-xs text-slate-600 mt-1.5" data-testid="bid-hint">
             {{ hint }}
           </p>
         </div>
@@ -72,7 +72,7 @@
             type="submit"
             data-testid="submit-bid-modal-btn"
             :disabled="loading"
-            class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 rounded-xl shadow-md shadow-emerald-600/25 transition-all disabled:opacity-60"
+            class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-emerald-700 hover:bg-emerald-800 active:bg-emerald-800 rounded-xl shadow-md shadow-emerald-600/25 transition-all disabled:opacity-60"
           >
             <template v-if="loading">
               <Loader2 :size="18" class="animate-spin" />

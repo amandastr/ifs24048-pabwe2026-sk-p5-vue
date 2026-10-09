@@ -19,7 +19,7 @@
           type="button"
           data-testid="close-cover-modal-btn"
           @click="onClose"
-          class="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
+          class="p-1.5 rounded-lg text-slate-600 hover:text-slate-600 hover:bg-slate-100 transition-colors"
         >
           <X :size="18" />
         </button>

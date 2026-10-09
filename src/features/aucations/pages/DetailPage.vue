@@ -60,7 +60,7 @@
       <div class="p-6 sm:p-8 space-y-6">
         <div class="space-y-3">
           <div class="flex items-center gap-3">
-            <span class="font-mono text-xs font-bold text-slate-400">
+            <span class="font-mono text-xs font-bold text-slate-600">
               #{{ aucation.id }}
             </span>
             <span
@@ -85,7 +85,7 @@
             {{ aucation.title }}
           </h1>
 
-          <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-400">
+          <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-600">
             <div class="flex items-center gap-1.5">
               <Calendar :size="14" class="shrink-0" />
               <span>Dibuat: <strong class="text-slate-500">{{ formatDate(aucation.created_at) }}</strong></span>
@@ -100,13 +100,13 @@
         <!-- Price summary -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div class="rounded-2xl bg-slate-50 border border-slate-100 p-4">
-            <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Harga Awal</p>
+            <p class="text-xs font-semibold uppercase tracking-wider text-slate-600">Harga Awal</p>
             <p data-testid="detail-start-bid" class="text-xl font-black text-slate-800 mt-1">
               {{ formatRupiah(aucation.start_bid) }}
             </p>
           </div>
           <div class="rounded-2xl bg-emerald-50 border border-emerald-100 p-4">
-            <p class="text-xs font-semibold uppercase tracking-wider text-emerald-600">Penawaran Tertinggi</p>
+            <p class="text-xs font-semibold uppercase tracking-wider text-emerald-800">Penawaran Tertinggi</p>
             <p data-testid="detail-highest-bid" class="text-xl font-black text-emerald-700 mt-1">
               {{ highestBid > 0 ? formatRupiah(highestBid) : "Belum ada" }}
             </p>
@@ -125,7 +125,7 @@
             type="button"
             data-testid="open-bid-btn"
             @click="showBidModal = true"
-            class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-emerald-600 hover:bg-emerald-700 rounded-xl shadow-md shadow-emerald-600/25 transition-all"
+            class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-emerald-700 hover:bg-emerald-800 rounded-xl shadow-md shadow-emerald-600/25 transition-all"
           >
             <HandCoins :size="18" />
             Ajukan Penawaran
@@ -147,7 +147,7 @@
           class="prose max-w-none text-slate-600 bg-slate-50/60 p-6 rounded-2xl border border-slate-100 leading-relaxed"
         >
           <MarkdownViewer v-if="aucation.description" :content="aucation.description" />
-          <p v-else class="italic text-slate-400">Tidak ada deskripsi rinci untuk lelang ini.</p>
+          <p v-else class="italic text-slate-600">Tidak ada deskripsi rinci untuk lelang ini.</p>
         </div>
 
         <!-- Bid history -->
@@ -160,7 +160,7 @@
           <div
             v-if="bids.length === 0"
             data-testid="bid-history-empty"
-            class="rounded-2xl border border-dashed border-slate-200 p-6 text-center text-sm text-slate-400"
+            class="rounded-2xl border border-dashed border-slate-200 p-6 text-center text-sm text-slate-600"
           >
             Belum ada penawaran untuk lelang ini.
           </div>
@@ -178,7 +178,7 @@
                 </div>
                 <div>
                   <p class="text-sm font-semibold text-slate-800">{{ getBidderName(bid) }}</p>
-                  <p class="text-xs text-slate-400">{{ formatDate(bid.created_at) }}</p>
+                  <p class="text-xs text-slate-600">{{ formatDate(bid.created_at) }}</p>
                 </div>
               </div>
               <p class="text-sm font-bold text-emerald-700">{{ formatRupiah(getBidAmount(bid)) }}</p>

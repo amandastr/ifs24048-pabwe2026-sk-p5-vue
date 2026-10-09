@@ -19,7 +19,7 @@
         type="button"
         data-testid="close-edit-modal-btn"
         @click="onClose"
-        class="p-2 rounded-xl text-slate-400 hover:text-slate-600 hover:bg-slate-200/60 transition-colors"
+        class="p-2 rounded-xl text-slate-600 hover:text-slate-600 hover:bg-slate-200/60 transition-colors"
       >
         <X :size="20" />
       </button>

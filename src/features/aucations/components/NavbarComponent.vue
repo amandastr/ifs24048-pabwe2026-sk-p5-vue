@@ -56,7 +56,7 @@
           </div>
           <ChevronDown
             :size="16"
-            class="text-slate-400 transition-transform duration-200"
+            class="text-slate-600 transition-transform duration-200"
             :class="{ 'rotate-180': dropdownOpen }"
           />
         </button>
