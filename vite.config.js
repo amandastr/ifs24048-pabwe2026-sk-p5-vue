@@ -3,7 +3,6 @@ import vue from "@vitejs/plugin-vue";
 import tailwindcss from "@tailwindcss/vite";
 import process from "process";
 
-// https://vite.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
 
@@ -19,6 +18,26 @@ export default defineConfig(({ mode }) => {
       DELCOM_BASEURL: JSON.stringify(
         env.VITE_DELCOM_BASEURL || "https://open-api.delcom.org/api/v1"
       ),
+    },
+    build: {
+      // Source maps untuk production (menghilangkan warning "Missing source maps")
+      sourcemap: true,
+      // Target modern browsers (mengurangi legacy JS / polyfill)
+      target: "es2022",
+      // Minify dengan esbuild (default, cepat)
+      minify: "esbuild",
+      // Chunk size warning
+      chunkSizeWarningLimit: 600,
+      rollupOptions: {
+        output: {
+          // Manual chunking agar JS tidak semuanya di satu file besar
+          manualChunks: {
+            "vue-vendor": ["vue", "vue-router", "pinia"],
+            "ui-vendor": ["lucide-vue-next", "sweetalert2"],
+            "editor": ["@toast-ui/editor"],
+          },
+        },
+      },
     },
     test: {
       globals: true,

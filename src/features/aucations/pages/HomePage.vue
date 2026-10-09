@@ -39,7 +39,7 @@
           <p class="text-xs font-semibold uppercase tracking-wider text-slate-600">
             Total Lelang
           </p>
-          <h3 data-testid="stat-total" class="text-3xl font-black text-slate-800 mt-1">{{ totalCount }}</h3>
+          <p data-testid="stat-total" class="text-3xl font-black text-slate-800 mt-1">{{ totalCount }}</p>
         </div>
         <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center">
           <Gavel :size="26" :stroke-width="2" />

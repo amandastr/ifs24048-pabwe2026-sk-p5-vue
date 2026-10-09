@@ -70,10 +70,14 @@
 
         <form @submit.prevent="handleUpdateProfile" class="space-y-4">
           <div>
-            <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">
+            <label
+              for="profile-name-input"
+              class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5"
+            >
               Nama Lengkap
             </label>
             <input
+              id="profile-name-input"
               type="text"
               data-testid="profile-name-input"
               v-model="name"
@@ -83,10 +87,14 @@
           </div>
 
           <div>
-            <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">
+            <label
+              for="profile-email-input"
+              class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5"
+            >
               Alamat Email
             </label>
             <input
+              id="profile-email-input"
               type="email"
               data-testid="profile-email-input"
               v-model="email"
@@ -123,10 +131,14 @@
 
         <form @submit.prevent="handleUpdatePassword" class="space-y-4">
           <div>
-            <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">
+            <label
+              for="current-password-input"
+              class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5"
+            >
               Kata Sandi Saat Ini
             </label>
             <input
+              id="current-password-input"
               type="password"
               data-testid="current-password-input"
               v-model="oldPassword"
@@ -137,10 +149,14 @@
           </div>
 
           <div>
-            <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">
+            <label
+              for="new-password-input"
+              class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5"
+            >
               Kata Sandi Baru
             </label>
             <input
+              id="new-password-input"
               type="password"
               data-testid="new-password-input"
               v-model="newPassword"
@@ -151,10 +167,14 @@
           </div>
 
           <div>
-            <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">
+            <label
+              for="confirm-password-input"
+              class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5"
+            >
               Ulangi Kata Sandi Baru
             </label>
             <input
+              id="confirm-password-input"
               type="password"
               data-testid="confirm-password-input"
               v-model="newPasswordConfirmation"
