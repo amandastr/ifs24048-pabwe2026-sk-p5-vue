@@ -3,6 +3,23 @@ import vue from "@vitejs/plugin-vue";
 import tailwindcss from "@tailwindcss/vite";
 import process from "process";
 
+// Vite 8 (Rolldown) mewajibkan manualChunks berupa fungsi, bukan objek.
+const chunkGroups = {
+  "vue-vendor": ["vue", "vue-router", "pinia"],
+  "ui-vendor": ["lucide-vue-next", "sweetalert2"],
+  editor: ["@toast-ui/editor"],
+};
+
+function manualChunks(id) {
+  if (!id.includes("node_modules")) return;
+
+  for (const [chunkName, packages] of Object.entries(chunkGroups)) {
+    if (packages.some((pkg) => id.includes(`/node_modules/${pkg}/`))) {
+      return chunkName;
+    }
+  }
+}
+
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
 
@@ -22,16 +39,11 @@ export default defineConfig(({ mode }) => {
     build: {
       sourcemap: true,
       target: "es2022",
-      minify: "esbuild",
       cssCodeSplit: true,
       chunkSizeWarningLimit: 600,
       rollupOptions: {
         output: {
-          manualChunks: {
-            "vue-vendor": ["vue", "vue-router", "pinia"],
-            "ui-vendor": ["lucide-vue-next", "sweetalert2"],
-            "editor": ["@toast-ui/editor"],
-          },
+          manualChunks,
         },
       },
     },
