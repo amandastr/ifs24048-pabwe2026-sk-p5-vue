@@ -1,9 +1,10 @@
 <template>
   <div v-if="!usersStore.profile" class="min-h-screen flex items-center justify-center bg-slate-50">
-    <div class="flex flex-col items-center gap-3">
+    <main class="flex flex-col items-center gap-3">
       <div class="w-10 h-10 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin" />
+      <h1 class="sr-only">Memuat sesi pengguna</h1>
       <p class="text-sm font-medium text-slate-600">Memuat sesi pengguna...</p>
-    </div>
+    </main>
   </div>
 
   <div v-else class="min-h-screen bg-slate-50 text-slate-800">
@@ -42,7 +43,6 @@ const authStore = useAuthStore();
 
 const isSidebarOpen = ref(false);
 
-// 1. Jalankan sekali untuk mengecek apakah pengguna sudah login
 onMounted(() => {
   const authToken = apiHelper.getAccessToken();
   if (authToken) {
@@ -52,7 +52,6 @@ onMounted(() => {
   }
 });
 
-// 2. Jika proses pengambilan profil selesai dan tidak ada profile, arahkan ke login
 watch(
   () => [usersStore.isProfile, usersStore.profile],
   ([isProfile, profile]) => {
@@ -66,7 +65,6 @@ watch(
   }
 );
 
-// 3. Efek setelah logout
 watch(
   () => authStore.isAuthLogout,
   (isAuthLogout) => {
