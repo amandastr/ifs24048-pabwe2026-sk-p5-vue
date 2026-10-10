@@ -20,22 +20,34 @@ export default defineConfig(({ mode }) => {
       ),
     },
     build: {
-      sourcemap: true,          // tetap true untuk debug
-      target: "es2022",         // modern browser → kurangi polyfill
-      minify: "esbuild",
+      sourcemap: true,
+      target: "es2022",
       cssCodeSplit: true,
       chunkSizeWarningLimit: 600,
-      rollupOptions: {
-        output: {
-          manualChunks: {
-            "vue-vendor": ["vue", "vue-router", "pinia"],
-            "ui-vendor": ["lucide-vue-next", "sweetalert2"],
-            // editor dipisah supaya hanya load saat dibutuhkan
-            editor: ["@toast-ui/editor"],
-          },
+    },
+    test: {
+      globals: true,
+      environment: "jsdom",
+      setupFiles: "./src/setupTests.js",
+      coverage: {
+        provider: "v8",
+        reporter: ["text", "json", "html", "lcov"],
+        include: ["src/**/*.{js,vue}"],
+        exclude: [
+          "src/main.js",
+          "src/setupTests.js",
+          "src/test-utils.js",
+          "**/*.test.{js,jsx}",
+          "node_modules/**",
+          ".docs/**",
+        ],
+        thresholds: {
+          lines: 100,
+          functions: 100,
+          branches: 100,
+          statements: 100,
         },
       },
     },
-    // ... test config tetap sama
   };
 });

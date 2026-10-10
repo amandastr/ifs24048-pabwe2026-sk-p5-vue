@@ -327,5 +327,5 @@ async function handleCancelBid() {
   if (result.isConfirmed) {
     aucationsStore.asyncSetIsBidDelete(aucation.value.id);
   }
-</script>
 }
+</script>
