@@ -36,34 +36,34 @@
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
       <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-xs flex items-center justify-between">
         <div>
-          <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-600">
             Total Lelang
           </p>
-          <p data-testid="stat-total" class="text-3xl font-black text-slate-800 mt-1">{{ totalCount }}</p>
+          <h3 data-testid="stat-total" class="text-3xl font-black text-slate-800 mt-1">{{ totalCount }}</h3>
         </div>
-        <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center">
+        <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-700 flex items-center justify-center">
           <Gavel :size="26" :stroke-width="2" />
         </div>
       </div>
 
       <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-xs flex items-center justify-between">
         <div>
-          <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-600">
             Sedang Berlangsung
           </p>
-          <p data-testid="stat-open" class="text-3xl font-black text-emerald-600 mt-1">{{ openCount }}</p>
+          <h3 data-testid="stat-open" class="text-3xl font-black text-emerald-700 mt-1">{{ openCount }}</h3>
         </div>
-        <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+        <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center">
           <Timer :size="26" :stroke-width="2" />
         </div>
       </div>
 
       <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-xs flex items-center justify-between">
         <div>
-          <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-600">
             Sudah Ditutup
           </p>
-          <p data-testid="stat-closed" class="text-3xl font-black text-slate-600 mt-1">{{ closedCount }}</p>
+          <h3 data-testid="stat-closed" class="text-3xl font-black text-slate-600 mt-1">{{ closedCount }}</h3>
         </div>
         <div class="w-12 h-12 rounded-2xl bg-slate-100 text-slate-600 flex items-center justify-center">
           <Lock :size="26" :stroke-width="2" />
@@ -76,14 +76,14 @@
       <div class="relative flex-1 max-w-md">
         <Search
           :size="18"
-          class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"
+          class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-600"
         />
         <input
           type="text"
           data-testid="search-aucation-input"
           v-model="searchQuery"
           placeholder="Cari judul atau deskripsi lelang..."
-          class="w-full pl-10 pr-4 py-2 text-sm rounded-xl border border-slate-200 bg-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition-all"
+          class="w-full pl-10 pr-4 py-2 text-sm rounded-xl border border-slate-200 bg-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition-all"
         />
       </div>
 
@@ -111,16 +111,16 @@
     <div
       v-if="loadingAucations && filteredAucations.length === 0"
       data-testid="aucations-loading"
-      class="bg-white rounded-2xl border border-slate-200/80 px-6 py-12 text-center text-slate-400"
+      class="bg-white rounded-2xl border border-slate-200/80 px-6 py-12 text-center text-slate-600"
     >
-      <Loader2 :size="36" class="mx-auto text-indigo-600 animate-spin mb-2" />
+      <Loader2 :size="36" class="mx-auto text-indigo-700 animate-spin mb-2" />
       <p class="font-medium text-slate-600">Memuat daftar lelang...</p>
     </div>
 
     <div
       v-else-if="filteredAucations.length === 0"
       data-testid="aucations-empty"
-      class="bg-white rounded-2xl border border-slate-200/80 px-6 py-12 text-center text-slate-400"
+      class="bg-white rounded-2xl border border-slate-200/80 px-6 py-12 text-center text-slate-600"
     >
       <Gavel :size="40" class="mx-auto text-slate-300 mb-2" />
       <p class="font-medium">Belum ada data lelang yang cocok.</p>
@@ -138,6 +138,8 @@
             v-if="aucation.cover"
             :src="aucation.cover"
             :alt="aucation.title"
+            loading="lazy"
+            decoding="async"
             class="w-full h-full object-cover"
           />
           <div v-else class="w-full h-full flex items-center justify-center text-slate-300">
@@ -153,7 +155,7 @@
           <span
             v-else
             :data-testid="`aucation-status-${aucation.id}`"
-            class="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/90 text-white"
+            class="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-700 text-white"
           >
             <Timer :size="12" /> Berlangsung
           </span>
@@ -164,18 +166,18 @@
             <p class="font-bold text-slate-800 leading-snug line-clamp-1">
               {{ aucation.title }}
             </p>
-            <p v-if="aucation.description" class="text-xs text-slate-400 line-clamp-2 mt-1">
+            <p v-if="aucation.description" class="text-xs text-slate-600 line-clamp-2 mt-1">
               {{ aucation.description }}
             </p>
           </div>
 
           <div class="grid grid-cols-2 gap-3 text-xs">
             <div class="rounded-xl bg-slate-50 p-3">
-              <p class="text-slate-400 font-semibold uppercase tracking-wide">Harga Awal</p>
+              <p class="text-slate-600 font-semibold uppercase tracking-wide">Harga Awal</p>
               <p class="font-bold text-slate-700 mt-0.5">{{ formatRupiah(aucation.start_bid) }}</p>
             </div>
             <div class="rounded-xl bg-emerald-50 p-3">
-              <p class="text-emerald-600 font-semibold uppercase tracking-wide">Tertinggi</p>
+              <p class="text-emerald-700 font-semibold uppercase tracking-wide">Tertinggi</p>
               <p :data-testid="`highest-bid-${aucation.id}`" class="font-bold text-emerald-700 mt-0.5">
                 {{ highestLabel(aucation) }}
               </p>
@@ -195,7 +197,7 @@
               type="button"
               :data-testid="`view-aucation-${aucation.id}`"
               @click="router.push(`/aucations/${aucation.id}`)"
-              class="inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-600 hover:text-indigo-800 transition-colors"
+              class="inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-700 hover:text-indigo-800 transition-colors"
             >
               <Eye :size="16" /> Lihat Detail
             </button>
@@ -205,7 +207,7 @@
                 type="button"
                 :data-testid="`edit-aucation-${aucation.id}`"
                 @click="handleEditAucation(aucation.id)"
-                class="p-1.5 text-slate-600 hover:text-amber-600 hover:bg-amber-50 rounded-lg transition-colors"
+                class="p-1.5 text-slate-600 hover:text-amber-700 hover:bg-amber-50 rounded-lg transition-colors"
                 title="Ubah Lelang"
               >
                 <Pencil :size="18" />

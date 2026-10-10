@@ -3,6 +3,7 @@ import vue from "@vitejs/plugin-vue";
 import tailwindcss from "@tailwindcss/vite";
 import process from "process";
 
+// https://vite.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
 
@@ -14,16 +15,27 @@ export default defineConfig(({ mode }) => {
     preview: {
       port: Number(env.APP_PORT) || 3000,
     },
+    build: {
+      target: "esnext",
+      sourcemap: true,
+      cssCodeSplit: true,
+      chunkSizeWarningLimit: 1500,
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (id.includes("node_modules")) {
+              if (id.includes("@toast-ui")) return "toast-ui";
+              if (id.includes("sweetalert2")) return "sweetalert";
+              return "vendor";
+            }
+          },
+        },
+      },
+    },
     define: {
       DELCOM_BASEURL: JSON.stringify(
         env.VITE_DELCOM_BASEURL || "https://open-api.delcom.org/api/v1"
       ),
-    },
-    build: {
-      sourcemap: true,
-      target: "es2022",
-      cssCodeSplit: true,
-      chunkSizeWarningLimit: 600,
     },
     test: {
       globals: true,

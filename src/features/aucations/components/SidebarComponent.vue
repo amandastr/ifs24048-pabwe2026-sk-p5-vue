@@ -44,7 +44,7 @@
                       :class="
                         isItemActive(item)
                           ? 'text-white'
-                          : 'text-slate-500 group-hover:text-slate-700'
+                          : 'text-slate-600 group-hover:text-slate-600'
                       "
                     />
                     <span>{{ item.label }}</span>

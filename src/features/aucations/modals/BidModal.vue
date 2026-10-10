@@ -50,7 +50,7 @@
             data-testid="bid-amount-input"
             v-model="bidAmount"
             placeholder="Masukkan nominal penawaran"
-            class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 transition-all text-sm shadow-xs"
+            class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-800 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 transition-all text-sm shadow-xs"
             required
           />
           <p class="text-xs text-slate-600 mt-1.5" data-testid="bid-hint">
@@ -72,7 +72,7 @@
             type="submit"
             data-testid="submit-bid-modal-btn"
             :disabled="loading"
-            class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-emerald-700 hover:bg-emerald-800 active:bg-emerald-800 rounded-xl shadow-md shadow-emerald-600/25 transition-all disabled:opacity-60"
+            class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-emerald-700 hover:bg-emerald-800 active:bg-emerald-900 rounded-xl shadow-md shadow-emerald-600/25 transition-all disabled:opacity-60"
           >
             <template v-if="loading">
               <Loader2 :size="18" class="animate-spin" />

@@ -38,7 +38,7 @@
               class="w-full h-full object-cover"
             />
             <div v-else class="flex flex-col items-center justify-center pt-5 pb-6 text-center px-4">
-              <div class="w-10 h-10 mb-2 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center">
+              <div class="w-10 h-10 mb-2 rounded-full bg-indigo-50 text-indigo-700 flex items-center justify-center">
                 <Upload :size="20" />
               </div>
               <p class="text-sm font-semibold text-slate-700">

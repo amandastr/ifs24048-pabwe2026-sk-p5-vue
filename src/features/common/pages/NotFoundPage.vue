@@ -2,7 +2,7 @@
   <div class="min-h-screen bg-slate-50 flex items-center justify-center p-4 sm:p-6 lg:p-8">
     <div class="max-w-md w-full text-center">
       <!-- Decorative Badge -->
-      <div class="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-indigo-50 text-indigo-600 mb-6 shadow-sm ring-8 ring-indigo-50/50 animate-bounce duration-1000">
+      <div class="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-indigo-50 text-indigo-700 mb-6 shadow-sm ring-8 ring-indigo-50/50 animate-bounce duration-1000">
         <TriangleAlert :size="40" :stroke-width="2" />
       </div>
 

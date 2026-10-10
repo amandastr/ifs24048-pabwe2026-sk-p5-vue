@@ -1,5 +1,6 @@
 <template>
   <div class="toastui-editor-wrapper">
+    <!-- Fallback hidden textarea with data-testid for accessibility and test compatibility -->
     <textarea
       :data-testid="textareaTestId"
       :value="modelValue"
@@ -64,7 +65,6 @@ onMounted(() => {
 watch(
   () => props.modelValue,
   (newVal) => {
-    if (!editorInstance) return;
     const currentVal = editorInstance.getMarkdown();
     if (newVal !== currentVal) {
       editorInstance.setMarkdown(newVal || "");
@@ -75,16 +75,12 @@ watch(
 function onTextareaInput(e) {
   emit("update:modelValue", e.target.value);
   emit("change", e.target.value);
-  if (editorInstance) {
-    editorInstance.setMarkdown(e.target.value);
-  }
+  editorInstance.setMarkdown(e.target.value);
 }
 
 onBeforeUnmount(() => {
-  if (editorInstance) {
-    editorInstance.destroy();
-    editorInstance = null;
-  }
+  editorInstance.destroy();
+  editorInstance = null;
 });
 </script>
 

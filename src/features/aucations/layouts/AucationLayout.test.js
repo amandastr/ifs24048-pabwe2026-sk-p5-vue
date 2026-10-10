@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import AucationLayout from "./AucationLayout.vue";
-import { renderWithProviders } from "../../../test-utils";
+import { renderWithProviders, createMockPinia } from "../../../test-utils";
 import apiHelper from "../../../helpers/apiHelper";
 
 const mockRouter = {
@@ -70,12 +70,12 @@ describe("AucationLayout", () => {
   it("should stay on page when isProfile is triggered and profile exists", async () => {
     vi.spyOn(apiHelper, "getAccessToken").mockReturnValue("valid-token");
 
-    const { wrapper, usersStore } = renderWithProviders(AucationLayout, {
-      preloadedState: {
-        profile: { id: 1, name: "Logged User" },
-        isProfile: false,
-      },
+    const { pinia, usersStore } = createMockPinia({
+      profile: { id: 1, name: "Logged User" },
+      isProfile: false,
     });
+    vi.spyOn(usersStore, "asyncSetProfile").mockResolvedValue();
+    const { wrapper } = renderWithProviders(AucationLayout, { pinia });
 
     usersStore.setIsProfile(true);
     await new Promise((r) => setTimeout(r, 10));

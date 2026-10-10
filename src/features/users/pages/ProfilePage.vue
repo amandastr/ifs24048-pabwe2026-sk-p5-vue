@@ -1,6 +1,6 @@
 <template>
   <div v-if="!profile" class="flex flex-col items-center justify-center py-24">
-    <Loader2 :size="36" class="text-indigo-600 animate-spin mb-2" />
+    <Loader2 :size="36" class="text-indigo-700 animate-spin mb-2" />
     <p class="text-sm font-medium text-slate-600">Memuat data profil...</p>
   </div>
 
@@ -14,6 +14,7 @@
       </p>
     </div>
 
+    <!-- Profile Card Header -->
     <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-xs flex flex-col sm:flex-row items-center gap-6">
       <div class="relative group">
         <img
@@ -58,9 +59,10 @@
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Form Biodata -->
       <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-xs space-y-5">
         <div class="flex items-center gap-2.5 pb-2 border-b border-slate-100">
-          <div class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center">
+          <div class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-700 flex items-center justify-center">
             <User :size="18" />
           </div>
           <h3 class="font-bold text-slate-800">Ubah Biodata</h3>
@@ -68,14 +70,10 @@
 
         <form @submit.prevent="handleUpdateProfile" class="space-y-4">
           <div>
-            <label
-              for="profile-name-input"
-              class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5"
-            >
+            <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">
               Nama Lengkap
             </label>
             <input
-              id="profile-name-input"
               type="text"
               data-testid="profile-name-input"
               v-model="name"
@@ -85,14 +83,10 @@
           </div>
 
           <div>
-            <label
-              for="profile-email-input"
-              class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5"
-            >
+            <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">
               Alamat Email
             </label>
             <input
-              id="profile-email-input"
               type="email"
               data-testid="profile-email-input"
               v-model="email"
@@ -118,9 +112,10 @@
         </form>
       </div>
 
+      <!-- Form Ganti Password -->
       <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-xs space-y-5">
         <div class="flex items-center gap-2.5 pb-2 border-b border-slate-100">
-          <div class="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center">
+          <div class="w-8 h-8 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center">
             <ShieldCheck :size="18" />
           </div>
           <h3 class="font-bold text-slate-800">Keamanan & Password</h3>
@@ -128,14 +123,10 @@
 
         <form @submit.prevent="handleUpdatePassword" class="space-y-4">
           <div>
-            <label
-              for="current-password-input"
-              class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5"
-            >
+            <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">
               Kata Sandi Saat Ini
             </label>
             <input
-              id="current-password-input"
               type="password"
               data-testid="current-password-input"
               v-model="oldPassword"
@@ -146,14 +137,10 @@
           </div>
 
           <div>
-            <label
-              for="new-password-input"
-              class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5"
-            >
+            <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">
               Kata Sandi Baru
             </label>
             <input
-              id="new-password-input"
               type="password"
               data-testid="new-password-input"
               v-model="newPassword"
@@ -164,14 +151,10 @@
           </div>
 
           <div>
-            <label
-              for="confirm-password-input"
-              class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5"
-            >
+            <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">
               Ulangi Kata Sandi Baru
             </label>
             <input
-              id="confirm-password-input"
               type="password"
               data-testid="confirm-password-input"
               v-model="newPasswordConfirmation"
@@ -210,6 +193,7 @@ import { User, Camera, Check, Loader2, ShieldCheck } from "lucide-vue-next";
 const usersStore = useUsersStore();
 const profile = computed(() => usersStore.profile);
 
+// Form states
 const name = ref("");
 const email = ref("");
 const oldPassword = ref("");
