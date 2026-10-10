@@ -37,7 +37,7 @@
         >
           <Loader2 v-if="loadingPhoto" :size="16" class="animate-spin" />
           <Camera v-else :size="16" />
-          <input
+          <input aria-label="Pilih foto profil"
             type="file"
             data-testid="profile-photo-file-input"
             accept="image/*"
@@ -73,7 +73,7 @@
             <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">
               Nama Lengkap
             </label>
-            <input
+            <input aria-label="Nama lengkap"
               type="text"
               data-testid="profile-name-input"
               v-model="name"
@@ -86,7 +86,7 @@
             <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">
               Alamat Email
             </label>
-            <input
+            <input aria-label="Alamat email"
               type="email"
               data-testid="profile-email-input"
               v-model="email"
@@ -126,7 +126,7 @@
             <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">
               Kata Sandi Saat Ini
             </label>
-            <input
+            <input aria-label="Kata sandi saat ini"
               type="password"
               data-testid="current-password-input"
               v-model="oldPassword"
@@ -140,7 +140,7 @@
             <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">
               Kata Sandi Baru
             </label>
-            <input
+            <input aria-label="Kata sandi baru"
               type="password"
               data-testid="new-password-input"
               v-model="newPassword"
@@ -154,7 +154,7 @@
             <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">
               Ulangi Kata Sandi Baru
             </label>
-            <input
+            <input aria-label="Konfirmasi kata sandi baru"
               type="password"
               data-testid="confirm-password-input"
               v-model="newPasswordConfirmation"

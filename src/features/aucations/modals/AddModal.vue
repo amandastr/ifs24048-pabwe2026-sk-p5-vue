@@ -33,7 +33,7 @@
             <label class="block text-sm font-semibold text-slate-700 mb-1.5">
               Judul Lelang <span class="text-red-500">*</span>
             </label>
-            <input
+            <input aria-label="Judul lelang"
               type="text"
               data-testid="add-aucation-title-input"
               v-model="title"
@@ -46,7 +46,7 @@
             <label class="block text-sm font-semibold text-slate-700 mb-1.5">
               Harga Awal (Rp) <span class="text-red-500">*</span>
             </label>
-            <input
+            <input aria-label="Harga awal lelang"
               type="number"
               min="0"
               data-testid="add-aucation-start-bid-input"
@@ -60,7 +60,7 @@
             <label class="block text-sm font-semibold text-slate-700 mb-1.5">
               Batas Waktu Penutupan <span class="text-red-500">*</span>
             </label>
-            <input
+            <input aria-label="Batas waktu penutupan lelang"
               type="datetime-local"
               data-testid="add-aucation-closed-at-input"
               v-model="closedAt"

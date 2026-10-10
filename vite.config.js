@@ -3,12 +3,28 @@ import vue from "@vitejs/plugin-vue";
 import tailwindcss from "@tailwindcss/vite";
 import process from "process";
 
+// Memuat CSS hasil build secara non-blocking agar tidak menahan render pertama.
+function nonBlockingCss() {
+  return {
+    name: "non-blocking-css",
+    enforce: "post",
+    transformIndexHtml(html) {
+      return html.replace(
+        /<link rel="stylesheet"([^>]*?) href="([^"]+\.css)"([^>]*)>/g,
+        (_match, before, href, after) =>
+          `<link rel="stylesheet"${before} href="${href}"${after} media="print" onload="this.media='all'">` +
+          `<noscript><link rel="stylesheet" href="${href}"></noscript>`
+      );
+    },
+  };
+}
+
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
 
   return {
-    plugins: [vue(), tailwindcss()],
+    plugins: [vue(), tailwindcss(), nonBlockingCss()],
     server: {
       port: Number(env.APP_PORT) || 3000,
     },

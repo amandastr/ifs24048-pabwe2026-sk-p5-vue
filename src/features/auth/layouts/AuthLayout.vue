@@ -1,12 +1,12 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-slate-50 via-indigo-50/40 to-slate-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+  <main class="min-h-screen bg-gradient-to-br from-slate-50 via-indigo-50/40 to-slate-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-md text-center">
       <div class="inline-flex w-14 h-14 rounded-2xl bg-gradient-to-tr from-indigo-600 to-cyan-500 items-center justify-center text-white shadow-xl shadow-indigo-500/25 mb-3">
         <Gavel :size="32" :stroke-width="2.5" />
       </div>
-      <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">
+      <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight">
         Delcom Auction
-      </h2>
+      </h1>
       <p class="mt-1 text-sm text-slate-500">
         Platform Lelang Online Modern &amp; Terpercaya
       </p>
@@ -35,7 +35,7 @@
         <RouterView />
       </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <script setup>

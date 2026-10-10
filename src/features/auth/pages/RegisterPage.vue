@@ -9,7 +9,7 @@
           :size="18"
           class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-600"
         />
-        <input
+        <input aria-label="Nama lengkap"
           type="text"
           data-testid="register-name-input"
           v-model="name"
@@ -29,7 +29,7 @@
           :size="18"
           class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-600"
         />
-        <input
+        <input aria-label="Alamat email"
           type="email"
           data-testid="register-email-input"
           v-model="email"
@@ -49,7 +49,7 @@
           :size="18"
           class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-600"
         />
-        <input
+        <input aria-label="Kata sandi"
           type="password"
           data-testid="register-password-input"
           v-model="password"

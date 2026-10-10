@@ -46,7 +46,7 @@
               </p>
               <p class="text-xs text-slate-500 mt-1">PNG, JPG, JPEG (Max. 1MB)</p>
             </div>
-            <input
+            <input aria-label="Pilih gambar cover lelang"
               type="file"
               data-testid="cover-file-input"
               accept=".jpg,.jpeg,.png"

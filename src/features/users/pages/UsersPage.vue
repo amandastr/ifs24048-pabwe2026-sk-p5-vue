@@ -19,7 +19,7 @@
             :size="18"
             class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-600"
           />
-          <input
+          <input aria-label="Cari pengguna"
             type="text"
             data-testid="search-user-input"
             v-model="search"

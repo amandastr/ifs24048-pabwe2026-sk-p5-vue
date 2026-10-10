@@ -44,7 +44,7 @@
           <label class="block text-sm font-semibold text-slate-700 mb-1.5">
             Nominal Penawaran (Rp) <span class="text-red-500">*</span>
           </label>
-          <input
+          <input aria-label="Nominal penawaran"
             type="number"
             min="0"
             data-testid="bid-amount-input"

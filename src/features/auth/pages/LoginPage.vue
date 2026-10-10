@@ -9,7 +9,7 @@
           :size="18"
           class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-600"
         />
-        <input
+        <input aria-label="Alamat email"
           type="email"
           id="login-email-input"
           data-testid="login-email-input"
@@ -30,7 +30,7 @@
           :size="18"
           class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-600"
         />
-        <input
+        <input aria-label="Kata sandi"
           type="password"
           id="login-password-input"
           data-testid="login-password-input"
