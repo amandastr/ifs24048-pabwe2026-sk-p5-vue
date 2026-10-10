@@ -50,13 +50,13 @@
             <span class="text-sm font-semibold text-slate-800 leading-tight">
               {{ profile?.name || "Pengguna" }}
             </span>
-            <span class="text-xs text-slate-500 leading-tight">
+            <span class="text-xs text-slate-600 leading-tight">
               {{ profile?.email || "" }}
             </span>
           </div>
           <ChevronDown
             :size="16"
-            class="text-slate-600 transition-transform duration-200"
+            class="text-slate-500 transition-transform duration-200"
             :class="{ 'rotate-180': dropdownOpen }"
           />
         </button>
@@ -68,7 +68,7 @@
         >
           <div class="px-3 py-2 sm:hidden">
             <p class="text-sm font-semibold text-slate-800">{{ profile?.name }}</p>
-            <p class="text-xs text-slate-500 truncate">{{ profile?.email }}</p>
+            <p class="text-xs text-slate-600 truncate">{{ profile?.email }}</p>
           </div>
 
           <div class="py-1">

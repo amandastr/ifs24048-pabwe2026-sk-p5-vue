@@ -88,11 +88,11 @@
           <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-600">
             <div class="flex items-center gap-1.5">
               <Calendar :size="14" class="shrink-0" />
-              <span>Dibuat: <strong class="text-slate-500">{{ formatDate(aucation.created_at) }}</strong></span>
+              <span>Dibuat: <strong class="text-slate-700">{{ formatDate(aucation.created_at) }}</strong></span>
             </div>
             <div class="flex items-center gap-1.5">
               <Calendar :size="14" class="shrink-0" />
-              <span>Ditutup: <strong class="text-slate-500">{{ formatDate(aucation.closed_at) }}</strong></span>
+              <span>Ditutup: <strong class="text-slate-700">{{ formatDate(aucation.closed_at) }}</strong></span>
             </div>
           </div>
         </div>
@@ -106,13 +106,13 @@
             </p>
           </div>
           <div class="rounded-2xl bg-emerald-50 border border-emerald-100 p-4">
-            <p class="text-xs font-semibold uppercase tracking-wider text-emerald-800">Penawaran Tertinggi</p>
+            <p class="text-xs font-semibold uppercase tracking-wider text-emerald-700">Penawaran Tertinggi</p>
             <p data-testid="detail-highest-bid" class="text-xl font-black text-emerald-700 mt-1">
               {{ highestBid > 0 ? formatRupiah(highestBid) : "Belum ada" }}
             </p>
           </div>
           <div class="rounded-2xl bg-indigo-50 border border-indigo-100 p-4">
-            <p class="text-xs font-semibold uppercase tracking-wider text-indigo-600">Sisa Waktu</p>
+            <p class="text-xs font-semibold uppercase tracking-wider text-indigo-700">Sisa Waktu</p>
             <p data-testid="detail-countdown" class="text-xl font-black text-indigo-700 mt-1">
               {{ formatRemaining(aucation.closed_at, now) }}
             </p>
@@ -125,7 +125,7 @@
             type="button"
             data-testid="open-bid-btn"
             @click="showBidModal = true"
-            class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-emerald-700 hover:bg-emerald-800 rounded-xl shadow-md shadow-emerald-600/25 transition-all"
+            class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-emerald-600 hover:bg-emerald-700 rounded-xl shadow-md shadow-emerald-600/25 transition-all"
           >
             <HandCoins :size="18" />
             Ajukan Penawaran
@@ -327,5 +327,5 @@ async function handleCancelBid() {
   if (result.isConfirmed) {
     aucationsStore.asyncSetIsBidDelete(aucation.value.id);
   }
-}
 </script>
+}
